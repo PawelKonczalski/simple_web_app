@@ -1,4 +1,6 @@
 const express = require('express');
+// const News = require('../models/news');
+
 const router = express.Router();
 
 router.all('*', (req, res, next) => {
@@ -10,7 +12,12 @@ router.all('*', (req, res, next) => {
 });
 
 router.get('/', (req, res) => {
-    res.render('admin', {title: 'Admin'});
+    res.render('admin/index', {title: 'Admin'});
 });
+
+router.get('/news/add', (req, res) => {
+    res.render('admin/news-form', {title: 'Add news'});
+});
+
 
 module.exports = router;
